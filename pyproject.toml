@@ -1,0 +1,27 @@
+[project]
+name = "death-noticer"
+version = "1.0.0"
+description = "An always-on Docker sidecar that notices dead containers and writes their obituary: cause of death, evidence, last logs. Zero dependencies, optional local AI."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { file = "LICENSE" }
+authors = [{ name = "Fernedy Arias" }]
+keywords = ["docker", "containers", "observability", "ai", "devops", "sre", "monitoring"]
+classifiers = [
+    "Environment :: Console",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: System :: Systems Administration",
+    "Topic :: System :: Monitoring",
+]
+
+[project.scripts]
+death-noticer = "death_noticer:main"
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = ["death_noticer"]

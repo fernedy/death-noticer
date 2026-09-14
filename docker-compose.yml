@@ -1,0 +1,13 @@
+# Deploy the noticer next to your stack and forget about it:
+#   docker compose up -d
+# Obituaries land in ./reports. Add your webhook to get them in Slack/Discord.
+services:
+  death-noticer:
+    build: .
+    image: fernedy/death-noticer:latest
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./reports:/reports
+    command: ["--reports-dir", "/reports"]
+    # command: ["--reports-dir", "/reports", "--webhook", "https://discord.com/api/webhooks/XXX/YYY"]
